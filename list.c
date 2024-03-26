@@ -34,12 +34,10 @@ List * createList() {
     lista->tail = NULL;
     lista->current = NULL;
     return lista;
-     //return NULL;  
 }
 
 void * firstList(List * list) {
-    if (list == NULL || list->head == NULL)
-    {
+    if (list == NULL || list->head == NULL || list->tail == NULL) {
         return NULL;
     }
     list->current = list->head;
@@ -47,6 +45,11 @@ void * firstList(List * list) {
 }
 
 void * nextList(List * list) {
+  if (list == NULL || list->head == NULL || list->tail == NULL || list->current == NULL){
+    return NULL;
+  }
+  list->current = list->current->next;
+  return(void *)list->current->data;
     return NULL;
 }
 
