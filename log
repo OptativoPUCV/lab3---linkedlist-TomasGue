@@ -54,3 +54,31 @@ Tue 26 Mar 2024 05:03:38 PM UTC:
  tests:  9|3
 total_score: 35/70
 c1f9b21
+Tue 26 Mar 2024 05:10:59 PM UTC: 
+ list.c | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+In file included from test.c:5:
+list.c:105:5: error: expected identifier or ‘(’ before ‘}’ token
+  105 |     }
+      |     ^
+list.c:106:9: error: expected ‘=’, ‘,’, ‘;’, ‘asm’ or ‘__attribute__’ before ‘->’ token
+  106 |     list->current = list->tail;
+      |         ^~
+list.c:107:5: error: data definition has no type or storage class [-Werror]
+  107 |     pushCurrent(list,data);
+      |     ^~~~~~~~~~~
+list.c:107:5: error: type defaults to ‘int’ in declaration of ‘pushCurrent’ [-Werror=implicit-int]
+list.c:107:5: error: parameter names (without types) in function declaration [-Werror]
+list.c:107:5: error: conflicting types for ‘pushCurrent’; have ‘int()’
+In file included from list.c:4,
+                 from test.c:5:
+list.h:20:6: note: previous declaration of ‘pushCurrent’ with type ‘void(List *, void *)’ {aka ‘void(struct List *, void *)’}
+   20 | void pushCurrent(List * list, void * data);
+      |      ^~~~~~~~~~~
+In file included from test.c:5:
+list.c:108:1: error: expected identifier or ‘(’ before ‘}’ token
+  108 | }
+      | ^
+cc1: all warnings being treated as errors
+Compilation failed
+5230c94
